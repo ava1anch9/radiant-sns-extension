@@ -47,13 +47,13 @@ class TextAsset < ActiveRecord::Base
   def self.create_from_file(file)
     @text_asset = self.new
     if file.blank?
-      @text_asset.errors.add(:uploaded_file, 'no file submitted for upload')
+      @text_asset.errors.add(:uploaded_file, t('sns.errors.no_file'))
 
     elsif !file.kind_of?(ActionController::UploadedFile)
-      @text_asset.errors.add(:uploaded_file, 'unusable format')
+      @text_asset.errors.add(:uploaded_file, t('sns.errors.unusable_format'))
 
     elsif file.size > 262144 # 256k (that's a HUGE script or stylesheet)
-      @text_asset.errors.add(:uploaded_file, 'file size larger than 256kB')
+      @text_asset.errors.add(:uploaded_file, t('sns.errors.large_file'))
 
     else
       @text_asset.name = file.original_filename.gsub(/\s/, '-')

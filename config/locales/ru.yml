@@ -1,0 +1,23 @@
+---
+ru:
+  sns:
+    delete: 'Удалить'
+    errors:
+      denied_message: 'У вас недостаточно прав для совершения этого действия.'
+      file_upload: 'При загрузке файла возникли следующие ошибки:'
+      large_file: 'файл больше, чем 256 Кб'
+      no_file: 'не выбран файл'
+      unusable_format: 'неверный формат'
+    labels:
+      select_file: "Выберите файл {{model}}'а:"
+    new: 'Создать'
+    not_found: 'Не найдено'
+    remove_warning: 'Вы уверены, что хотите <strong class="warning">безвозвратно удалить</strong> этот {{model}}?'
+    titles:
+      edit: 'Редактирование'
+      new: 'Новый'
+      remove: 'Удалерние'
+      upload: 'Загрузка'
+      upload_errors: 'Ошибки загрузки'
+    upload: 'Загрузить'
+

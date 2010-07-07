@@ -3,7 +3,7 @@ class Admin::TextAssetsController < Admin::ResourceController
   only_allow_access_to :index, :new, :edit, :remove, :upload,
     :when => [:developer, :admin],
     :denied_url => { :controller => 'pages', :action => 'index' },
-    :denied_message => 'You must have developer or administrator privileges to perform this action.'
+    :denied_message => t('sns.errors.denied_message')
 
   prepend_before_filter :set_model
 

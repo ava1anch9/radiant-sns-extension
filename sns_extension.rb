@@ -8,22 +8,11 @@ class SnsExtension < Radiant::Extension
   description "Adds CSS and JS file management to Radiant"
   url "http://github.com/radiant/radiant-sns-extension"
 
-
-  define_routes do |map|
-    map.namespace :admin,
-                  :controller => 'text_assets',
-                  :member => { :remove => :get },
-                  :collection => { :upload => :post } do |admin|
-      
-      admin.resources :stylesheets, :as => 'css', :requirements => { :asset_type => 'stylesheet'}
-      admin.resources :javascripts, :as => 'js', :requirements => { :asset_type => 'javascript' }
-    end
-  end
-
-
   def activate
-    admin.tabs.add "CSS", "/admin/css", :after => "Layouts", :visibility => [:admin, :developer]
-    admin.tabs.add "JS", "/admin/js", :after => "CSS", :visibility => [:admin, :developer]
+    tab 'Design' do
+      add_item 'CSS', '/admin/css', :after => 'Snippets'
+      add_item 'JS', '/admin/js', :after => 'CSS'
+    end
 
     # Include my mixins (extending PageTags and SiteController)
     Page.send :include, Sns::PageTags
@@ -43,8 +32,8 @@ class SnsExtension < Radiant::Extension
 
 
   def deactivate
-    admin.tabs.remove "CSS"
-    admin.tabs.remove "JS"
+#    admin.tabs.remove "CSS"
+#    admin.tabs.remove "JS"
   end
 
 

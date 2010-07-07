@@ -1,0 +1,23 @@
+---
+en:
+  sns:
+    delete: 'Delete'
+    errors:
+      denied_message: 'You must have developer or administrator privileges to perform this action.'
+      file_upload: 'The file upload experienced the following errors:'
+      large_file: 'file size larger than 256kB'
+      no_file: 'no file submitted for upload'
+      unusable_format: 'unusable format'
+    labels:
+      select_file: "Select a {{model}} file:"
+    new: 'New'
+    not_found: 'No {plural_model}}'
+    remove_warning: 'Are you sure you want to <strong class="warning">permanently remove</strong> the following {{model}}?'
+    titles:
+      edit: 'Edit'
+      new: 'New'
+      remove: 'Remove'
+      upload: 'Upload'
+      upload_errors: 'Upload Errors'
+    upload: 'Upload'
+

@@ -5,11 +5,11 @@
     - render_region :form do |form|
       - form.edit_title do
         %p.title
-          %label{:for=>"#{model_symbol}_name"} Name
+          %label{:for=>"#{model_symbol}_name"}= t('name')
           = f.text_field "name", :class => 'textbox', :maxlength => 100
       - form.edit_content do
         %p.content
-          %label{:for=>"#{model_symbol}_content"} Body
+          %label{:for=>"#{model_symbol}_content"}= t('body')
           ~ f.text_area "content", :class => "textarea", :style => "width: 100%"
         -# create a region called content_bottom so extensions can add
         -# their own items (i.e. allow for a minify checkbox).
@@ -19,8 +19,8 @@
               -# creata a filter drop-down *only* if there are any filters installed
               - unless (model_name + "Filter").constantize.descendants.empty?
                 %p
-                  %label{:for=>"#{model_symbol}_filter"} Filter
-                  = select_tag "#{model_symbol}[filter_id]", options_for_select([['<none>', '']] + (model_name + "Filter").constantize.descendants.map { |f| f.filter_name }.sort, model.filter_id), :id => "#{model_symbol}_filter"
+                  %label{:for=>"#{model_symbol}_filter"}= t('filter')
+                  = select_tag "#{model_symbol}[filter_id]", options_for_select([[t('select.none'), '']] + (model_name + "Filter").constantize.descendants.map { |f| f.filter_name }.sort, model.filter_id), :id => "#{model_symbol}_filter"
       - form.edit_timestamp do
         = updated_stamp model
   
@@ -31,5 +31,5 @@
       %p.buttons
         = save_model_button(model)
         = save_model_and_continue_editing_button(model)
-        or
-        = link_to 'Cancel', send("admin_#{model_symbol}s_path")
+        = t('or')
+        = link_to t('cancel'), send("admin_#{model_symbol}s_path")
